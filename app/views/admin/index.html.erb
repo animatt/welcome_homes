@@ -1,0 +1,12 @@
+<h1>Users</h1>
+<ul>
+  <% @users.each do |user| %>
+  <li>First: <%= user.first_name %></li>
+  <li>Last: <%= user.last_name %></li>
+  <li>Email: <%= link_to user.email, admin_su_login_new_path(email: user.email) %></li>
+  <li>Last logged in: <%= user.last_logged_in %></li>
+  <br/>
+  <% end %>
+</ul>
+
+<%= button_to 'logout', admin_login_path, method: :delete %>

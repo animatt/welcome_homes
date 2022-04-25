@@ -1,1 +1,8 @@
 <h1>Welcome</h1>
+<% if @user_logged_in %>
+<p>Logged in as: <%= session[:user_email] %></p>
+<%= button_to 'logout', login_path, method: :delete %>
+<% else %>
+<%= button_to 'login', login_new_path, method: :get %>
+<%= button_to 'sign up', sign_up_new_path, method: :get %>
+<% end %>
