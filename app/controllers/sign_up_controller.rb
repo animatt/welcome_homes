@@ -18,6 +18,9 @@ class SignUpController < ApplicationController
 
       redirect_to user_path
     end
+  rescue ActiveRecord::RecordInvalid => e
+    flash.alert = e.message
+    render :new
   end
 
   private
